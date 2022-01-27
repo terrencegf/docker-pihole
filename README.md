@@ -1,4 +1,4 @@
-# docker-config
+# docker-pihole
 Docker configuration set-up for PiHole.
 
 ## Set up Portainer
