@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    network_mode: bridge
+    hostname: toast
+    ports:
+      - '53:53/tcp'
+      - '53:53/udp'
+      - '67:67/udp'
+      - '80:80/tcp'
+      - '443:443/tcp'
+    environment:
+      WEBPASSWORD: "${WEBPASSWORD}"
+      TZ: "America/Chicago"
+      PIHOLE_DNS_: "208.67.222.222;208.67.220.220"
+    volumes:
+      - '/etc/pihole/etc:/etc/pihole'
+      - '/etc/pihole/dnsmasq.d:/etc/dnsmasq.d'
+    cap_add:
+      - NET_ADMIN
+    restart: always
