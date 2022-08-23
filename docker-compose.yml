@@ -3,7 +3,7 @@ version: '3.8'
 services:
   pihole:
     container_name: pihole
-    image: pihole/pihole:latest
+    image: pihole/pihole:2022.07.01
     network_mode: bridge
     hostname: toast
     ports:
